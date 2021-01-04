@@ -1,10 +1,13 @@
-//package com.example.demo.class;
+package com.example.demo.class;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-//package com.example.demo.resoucer;
+import com.example.demo.Categoria;
 
 @RestController
 @RequestMapping(value = "/categorias")
@@ -12,7 +15,15 @@ public class CategoriaResourcer {
 
     @RequestMapping(method = RequestMethod.GET)
     public String listar() {
-        return "Rest esta funcionando!";
+
+        Categoria cat = new Categoria(1, "Informatica");
+        Categoria cat2 = new Categoria(2, "Escritorio");
+
+        List<Categoria> lista = new ArrayList<>();
+        lista.add(cat);
+        lista.add(cat2);
+
+        return lista;
     }
 
 }
